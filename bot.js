@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const getRandomProblemFromBot = async () => {
+const getRandomProblemFromBot = async (difficulty = null) => {
   var data = JSON.stringify({
-    query: `query  {
-            randomQuestion(categorySlug: "", filters: {}) {
-              titleSlug
-            }
-          }`,
-    variables: {},
+    query: `query randomQuestion($categorySlug: String, $filters: QuestionListFilterInput) {
+        randomQuestion(categorySlug: $categorySlug, filters: $filters) {
+          titleSlug
+        }
+      }`,
+    variables: {"categorySlug":"","filters": difficulty ? {"difficulty": difficulty} : {}}
   });
 
   var config = {
@@ -16,8 +16,6 @@ const getRandomProblemFromBot = async () => {
     url: "https://leetcode.com/graphql/",
     headers: {
       "Content-Type": "application/json",
-      Cookie:
-        "csrftoken=WFBgx5dlJ0TkbYhnp9g0zqD4MGYAyRCV0r38j8xZI34zUA18WToifgJgGGpRDgHA",
     },
     data: data,
   };

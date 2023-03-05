@@ -38,11 +38,48 @@ client.on("messageCreate",(message) => {
 */
 client.on("messageCreate", async (message) => {
   if (message.content.toLowerCase() === "random") {
-    const randomQuestionName = await getRandomProblemFromBot();
+    const randomQuestionName = await getRandomProblemFromBot("HARD");
     const name = randomQuestionName.data.randomQuestion.titleSlug;
     const url = `https://leetcode.com/problems/${name}`
     message.reply(url);
   }
 });
+
+/*
+Returns a hard random problem from leetcode when the message "hard" is typed
+*/
+client.on("messageCreate", async (message) => {
+  if (message.content.toLowerCase() === "hard") {
+    const randomQuestionName = await getRandomProblemFromBot("HARD");
+    const name = randomQuestionName.data.randomQuestion.titleSlug;
+    const url = `https://leetcode.com/problems/${name}`
+    message.reply(url);
+  }
+});
+
+/*
+Returns a medium random problem from leetcode when the message "medium" is typed
+*/
+client.on("messageCreate", async (message) => {
+  if (message.content.toLowerCase() === "medium") {
+    const randomQuestionName = await getRandomProblemFromBot("MEDIUM");
+    const name = randomQuestionName.data.randomQuestion.titleSlug;
+    const url = `https://leetcode.com/problems/${name}`
+    message.reply(url);
+  }
+});
+
+/*
+Returns a easy random problem from leetcode when the message "easy" is typed
+*/
+client.on("messageCreate", async (message) => {
+  if (message.content.toLowerCase() === "easy") {
+    const randomQuestionName = await getRandomProblemFromBot("EASY");
+    const name = randomQuestionName.data.randomQuestion.titleSlug;
+    const url = `https://leetcode.com/problems/${name}`
+    message.reply(url);
+  }
+});
+
 
 client.login(process.env.TOKEN);
