@@ -7,6 +7,15 @@ Built using NodeJs and DiscordJs.
 
 <img width="97" alt="Capture" src="https://user-images.githubusercontent.com/62784600/222943065-88cb8e7f-c66a-4907-b794-a3e206552b8f.PNG">
 
+
+## Bot in action
+
+![App Screenshot](assets/image1.jpeg)
+
+![App Screenshot](assets/image2.jpeg)
+
+![App Screenshot](assets/image3.jpeg)
+
 ## Commands
 
 * Help -- This returns a list of Commands available for the bot.
